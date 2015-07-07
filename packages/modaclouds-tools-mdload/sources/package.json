@@ -13,6 +13,8 @@
 	"dependencies" : {
 		"provides" : ["@{definitions:package:name}"],
 		"requires" : [
+			"modaclouds-rt-matlab-mcr-r2013a",
+			"mosaic-rt-jre-7"
 		]
 	},
 	
@@ -73,7 +75,7 @@
 		
 		"distribution:name" : "mdload",
 		"distribution:version" : "0.1.0",
-		"distribution:url:root" : "http://ftp.modaclouds.eu/public/distribution",
+		"distribution:url:root" : "http://ftp.modaclouds.eu/public/distributions",
 		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}"
 	}
 }
