@@ -68,8 +68,8 @@
 	
 	"resources" : {
 		"service-run.bash" : {
-			"generator" : "sources",
-			"path" : "service-run.bash"
+			"generator" : "fetcher",
+			"uri" : "@{definitions:distribution:url:base}/service-run.bash"
 		},
 		"distribution.tar.gz" : {
 			"generator" : "fetcher",
@@ -88,17 +88,16 @@
 		"distribution:url:root" : "http://ftp.modaclouds.eu/public/distributions",
 		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		
-		"environment:SDA_WEKA_HOME" : "@{package:root}/lib/sda-weka",
-		"environment:SDA_WEKA_ENDPOINT_IP" : "0.0.0.0",
-		"environment:SDA_WEKA_ENDPOINT_PORT" : "8085",
-		
-		"environment:DDA_ENDPOINT_IP" : "0.0.0.0",
-		"environment:DDA_ENDPOINT_PORT" : "8083",
-		
-		"environment:KNOWLEDGEBASE_ENDPOINT_IP" : "0.0.0.0",
-		"environment:KNOWLEDGEBASE_ENDPOINT_PORT" : "8081",
-		"environment:KNOWLEDGEBASE_DATASET_PATH" : "/modaclouds/kb",
-		"environment:KNOWLEDGEBASE_SYNC_PERIOD" : "6",
+		"environment:TOWER4CLOUDS_CLOUD_PROVIDER_TYPE" : "__unknown__",
+		"environment:TOWER4CLOUDS_CLOUD_PROVIDER_ID" : "__unknown__",
+		"environment:TOWER4CLOUDS_PAAS_SERVICE_TYPE" : "__unknown__",
+		"environment:TOWER4CLOUDS_PAAS_SERVICE_ID" : "__unknown__",
+		"environment:TOWER4CLOUDS_VM_TYPE" : "__unknown__",
+		"environment:TOWER4CLOUDS_VM_ID" : "__unknown__",
+		"environment:TOWER4CLOUDS_LOCATION_TYPE" : "__unknown__",
+		"environment:TOWER4CLOUDS_LOCATION_ID" : "__unknown__",
+		"environment:TOWER4CLOUDS_INTERNAL_COMPONENT_TYPE" : "__unknown__",
+		"environment:TOWER4CLOUDS_INTERNAL_COMPONENT_ID" : "__unknown__",
 		
 		"environment:JAVA_HOME" : "/opt/mosaic-rt-jre-7",
 		"environment:PATH" : "@{definitions:environment:JAVA_HOME}/bin:/usr/bin:/bin",
