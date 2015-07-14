@@ -50,13 +50,13 @@ fi
 
 _variable_overrides=(
 		
-		_FUSEKI_CONF="${MODACLOUDS_KNOWLEDGEBASE_FUSEKI_CONF:-${_FUSEKI_CONF}}"
-		_FUSEKI_VAR="${MODACLOUDS_KNOWLEDGEBASE_FUSEKI_VAR:-${_FUSEKI_VAR}}"
-		_FUSEKI_ENDPOINT_IP="${MODACLOUDS_KNOWLEDGEBASE_ENDPOINT_IP:-${_FUSEKI_ENDPOINT_IP}}"
-		_FUSEKI_ENDPOINT_PORT="${MODACLOUDS_KNOWLEDGEBASE_ENDPOINT_PORT:-${_FUSEKI_ENDPOINT_PORT}}"
-		_FUSEKI_DATASET_PATH="${MODACLOUDS_KNOWLEDGEBASE_DATASET_PATH:-${_FUSEKI_DATASET_PATH}}"
+		_FUSEKI_CONF="${MODACLOUDS_FUSEKI_CONF:-${_FUSEKI_CONF}}"
+		_FUSEKI_VAR="${MODACLOUDS_FUSEKI_VAR:-${_FUSEKI_VAR}}"
+		_FUSEKI_ENDPOINT_IP="${MODACLOUDS_FUSEKI_ENDPOINT_IP:-${_FUSEKI_ENDPOINT_IP}}"
+		_FUSEKI_ENDPOINT_PORT="${MODACLOUDS_FUSEKI_ENDPOINT_PORT:-${_FUSEKI_ENDPOINT_PORT}}"
+		_FUSEKI_DATASET_PATH="${MODACLOUDS_FUSEKI_DATASET_PATH:-${_FUSEKI_DATASET_PATH}}"
 		
-		_TMPDIR="${MODACLOUDS_KNOWLEDGEBASE_TMPDIR:-${_TMPDIR}}"
+		_TMPDIR="${MODACLOUDS_FUSEKI_TMPDIR:-${_TMPDIR}}"
 )
 declare "${_variable_overrides[@]}"
 
@@ -98,10 +98,10 @@ fi
 
 printf '[--]\n' >&2
 printf '[ii] parameters:\n' >&2
-printf '[ii]   * knowledgebase endpoint: `http://%s:%s/`;\n' "${_FUSEKI_ENDPOINT_IP}" "${_FUSEKI_ENDPOINT_PORT}" >&2
-printf '[ii]   * knowledgebase dataset: `%s`;\n' "${_FUSEKI_DATASET_PATH}" >&2
-printf '[ii]   * knowledgebase installation: `%s`;\n' "${_FUSEKI_HOME}" >&2
-printf '[ii]   * knowledgebase database: `%s`;\n' "${_FUSEKI_VAR}" >&2
+printf '[ii]   * fuseki endpoint: `http://%s:%s/`;\n' "${_FUSEKI_ENDPOINT_IP}" "${_FUSEKI_ENDPOINT_PORT}" >&2
+printf '[ii]   * fuseki dataset: `%s`;\n' "${_FUSEKI_DATASET_PATH}" >&2
+printf '[ii]   * fuseki installation: `%s`;\n' "${_FUSEKI_HOME}" >&2
+printf '[ii]   * fuseki database: `%s`;\n' "${_FUSEKI_VAR}" >&2
 printf '[ii]   * environment:\n' >&2
 for _variable in "${_environment[@]}" ; do
 	printf '[ii]       * `%s`;\n' "${_variable}" >&2
@@ -109,7 +109,7 @@ done
 printf '[ii]   * workding directory: `%s`;\n' "${PWD}" >&2
 printf '[--]\n' >&2
 
-printf '[ii] starting knowledgebase (Fuseki)...\n' >&2
+printf '[ii] starting fuseki...\n' >&2
 printf '[--]\n' >&2
 
 exec \

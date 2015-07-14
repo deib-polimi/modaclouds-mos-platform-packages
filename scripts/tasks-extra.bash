@@ -8,7 +8,7 @@ modaclouds-platform-core@publish :
 
 modaclouds-services-fg-analyzer@package :
 modaclouds-services-fg-local-db@package :
-modaclouds-services-knowledgebase@package :
+modaclouds-services-fuseki@package :
 modaclouds-services-load-balancer-controller@package :
 modaclouds-services-load-balancer-reasoner@package :
 modaclouds-services-metric-explorer@package :
@@ -23,7 +23,7 @@ modaclouds-tools-mdload@package :
 
 modaclouds-services-fg-analyzer@publish :
 modaclouds-services-fg-local-db@publish :
-modaclouds-services-knowledgebase@publish :
+modaclouds-services-fuseki@publish :
 modaclouds-services-load-balancer-controller@publish :
 modaclouds-services-load-balancer-reasoner@publish :
 modaclouds-services-metric-explorer@publish :

@@ -12,7 +12,7 @@
 	
 	"dependencies" : {
 		"requires" : [
-			"modaclouds-services-knowledgebase == @{package:version}",
+			"modaclouds-services-fuseki == @{package:version}",
 			"glibc-32bit"
 		]
 	},
@@ -20,7 +20,7 @@
 	"miscellaneous" : {
 		"license" : "apache-2.0",
 		"url" : "http://www.modaclouds.eu/",
-		"summary" : "MODAClouds components: knowledgebase"
+		"summary" : "MODAClouds components: fuseki"
 	},
 	
 	"overlays" : [
@@ -52,7 +52,7 @@
 			"generator" : "symlinks",
 			"target" : "@{package:root}/env/variables",
 			"links" : {
-				"@@a:modaclouds_knowledgebase_run" : "/opt/modaclouds-services-knowledgebase-@{package:version}/bin/modaclouds-services-knowledgebase--run-service"
+				"@@a:modaclouds_fuseki_run" : "/opt/modaclouds-services-fuseki-@{package:version}/bin/modaclouds-services-fuseki--run-service"
 			}
 		}
 	],
@@ -67,7 +67,7 @@
 	
 	"definitions" : {
 		
-		"package:name" : "modaclouds-components-knowledgebase",
+		"package:name" : "modaclouds-components-fuseki",
 		"package:version" : "0.7.0_dev",
 		"package:release" : "@{execution:timestamp}",
 		
