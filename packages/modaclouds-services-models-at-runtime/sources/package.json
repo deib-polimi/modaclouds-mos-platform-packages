@@ -47,7 +47,7 @@
 			"resource" : "distribution.tar.gz",
 			"format" : "tar+gzip",
 			"options" : {
-				"strip-components" : 0
+				"strip-components" : 1
 			}
 		},
 		{
@@ -74,10 +74,10 @@
 		
 		"package:name" : "modaclouds-service-models-at-runtime",
 		"package:version" : "0.7.0_dev",
-		"package:release" : "@{execution:timestamp}",
+		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 		
 		"distribution:name" : "mrt",
-		"distribution:version" : "0.2.0",
+		"distribution:version" : "0.3.0",
 		"distribution:url:root" : "http://ftp.modaclouds.eu/public/distributions",
 		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		
