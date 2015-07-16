@@ -84,8 +84,10 @@
 		"environment:FG_LOCALDB_DISTRIBUTION" : "@{package:root}/lib/distribution",
 		"environment:FG_PATH" : "/v1/collections/FG/",
 		"environment:FG_LOCALDB_METRICS" : "fg_metrics.properties",
+		
 		"environment:OBJECT_STORE_ENDPOINT_IP" : "0.0.0.0",
 		"environment:OBJECT_STORE_ENDPOINT_PORT" : "20622",
+		
 		"environment:HISTORYDB_ENDPOINT_IP" : "0.0.0.0",
 		"environment:HISTORYDB_ENDPOINT_PORT" : "3030",
 		

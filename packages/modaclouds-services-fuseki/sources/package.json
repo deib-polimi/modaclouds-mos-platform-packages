@@ -82,11 +82,10 @@
 		"resources:modaclouds:url:distributions" : "@{definitions:resources:modaclouds:url:base}/distributions/@{definitions:package:name}/@{definitions:versions:modaclouds:fuseki}",
 		
 		"environment:FUSEKI_HOME" : "@{package:root}/lib/fuseki",
-		"environment:FUSEKI_CONF" : "@{package:root}/etc/fuseki",
 		"environment:FUSEKI_VAR" : "@{package:root}/var/fuseki",
 		"environment:FUSEKI_ENDPOINT_IP" : "0.0.0.0",
-		"environment:FUSEKI_ENDPOINT_PORT" : "8081",
-		"environment:FUSEKI_DATASET_PATH" : "/modaclouds/kb",
+		"environment:FUSEKI_ENDPOINT_PORT" : "3031",
+		"environment:FUSEKI_DATASET_PATH" : "/ds",
 		
 		"environment:JAVA_HOME" : "/opt/mosaic-rt-jre-7",
 		"environment:PATH" : "@{definitions:environment:JAVA_HOME}/bin:/usr/bin:/bin",

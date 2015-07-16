@@ -87,17 +87,17 @@
 		"environment:SLACORE_PUBLIC_ENDPOINT_IP": "127.0.0.1",
 		"environment:SLACORE_PUBLIC_ENDPOINT_PORT" : "9040",
 		
-		"environment:TOWER4CLOUDS_MANAGER_ENDPOINT_IP": "127.0.0.1",
+		"environment:TOWER4CLOUDS_MANAGER_ENDPOINT_IP": "0.0.0.0",
 		"environment:TOWER4CLOUDS_MANAGER_ENDPOINT_PORT": "8082",
 		
-		"environment:MYSQL_ENDPOINT_IP": "127.0.0.1",
+		"environment:MYSQL_ENDPOINT_IP": "0.0.0.0",
 		"environment:MYSQL_ENDPOINT_PORT": "3036",
 		"environment:MYSQL_DATABASE": "atossla",
 		"environment:MYSQL_USERNAME": "atossla",
 		"environment:MYSQL_PASSWORD": "_atossla_",
 		
-		"environment:BIN": "@{package:root}/bin",
 		"environment:LIB": "@{package:root}/lib",
+		
 		"environment:JAVA_HOME" : "/opt/mosaic-rt-jre-7",
 		"environment:PATH" : "@{definitions:environment:JAVA_HOME}/bin:/usr/bin:/bin",
 		"environment:TMPDIR" : "/tmp/modaclouds/@{package:identifier}"

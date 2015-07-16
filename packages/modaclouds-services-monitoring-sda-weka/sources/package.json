@@ -30,7 +30,7 @@
 				"/",
 				"/bin",
 				"/lib",
-				"/lib/sda-weka",
+				"/lib/distribution",
 				"/lib/scripts"
 			]
 		},
@@ -50,7 +50,7 @@
 		},
 		{
 			"generator" : "unarchiver",
-			"target" : "@{package:root}/lib/sda-weka",
+			"target" : "@{package:root}/lib/distribution",
 			"resource" : "distribution.tar.gz",
 			"format" : "tar+gzip",
 			"options" : {
@@ -59,7 +59,7 @@
 		},
 		{
 			"generator" : "symlinks",
-			"target" : "@{package:root}/lib/sda-weka",
+			"target" : "@{package:root}/lib/distribution",
 			"links" : {
 				"service.jar" : "./sda-weka-@{definitions:distribution:version}.jar"
 			}
@@ -67,13 +67,13 @@
 	],
 	
 	"resources" : {
-		"service-run.bash" : {
-			"generator" : "fetcher",
-			"uri" : "@{definitions:distribution:url:base}/service-run.bash"
-		},
 		"distribution.tar.gz" : {
 			"generator" : "fetcher",
 			"uri" : "@{definitions:distribution:url:base}/distribution.tar.gz"
+		},
+		"service-run.bash" : {
+			"generator" : "fetcher",
+			"uri" : "@{definitions:distribution:url:base}/service-run.bash"
 		}
 	},
 	
@@ -88,16 +88,15 @@
 		"distribution:url:root" : "http://ftp.modaclouds.eu/public/distributions",
 		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		
-		"environment:TOWER4CLOUDS_CLOUD_PROVIDER_TYPE" : "__unknown__",
-		"environment:TOWER4CLOUDS_CLOUD_PROVIDER_ID" : "__unknown__",
-		"environment:TOWER4CLOUDS_PAAS_SERVICE_TYPE" : "__unknown__",
-		"environment:TOWER4CLOUDS_PAAS_SERVICE_ID" : "__unknown__",
-		"environment:TOWER4CLOUDS_VM_TYPE" : "__unknown__",
-		"environment:TOWER4CLOUDS_VM_ID" : "__unknown__",
-		"environment:TOWER4CLOUDS_LOCATION_TYPE" : "__unknown__",
-		"environment:TOWER4CLOUDS_LOCATION_ID" : "__unknown__",
-		"environment:TOWER4CLOUDS_INTERNAL_COMPONENT_TYPE" : "__unknown__",
-		"environment:TOWER4CLOUDS_INTERNAL_COMPONENT_ID" : "__unknown__",
+		"environment:JAVA_SDA_DISTRIBUTION" : "@{package:root}/lib/distribution",
+		"environment:JAVA_SDA_ENDPOINT_IP" : "0.0.0.0",
+		"environment:JAVA_SDA_ENDPOINT_PORT" : "8177",
+		
+		"environment:TOWER4CLOUDS_MANAGER_IP" : "0.0.0.0",
+		"environment:TOWER4CLOUDS_MANAGER_PORT" : "8170",
+		
+		"environment:TOWER4CLOUDS_SDA_SYNC_PERIOD" : "30",
+		"environment:TOWER4CLOUDS_RESOURCES_KEEP_ALIVE_PERIOD" : "60",
 		
 		"environment:JAVA_HOME" : "/opt/mosaic-rt-jre-7",
 		"environment:PATH" : "@{definitions:environment:JAVA_HOME}/bin:/usr/bin:/bin",
