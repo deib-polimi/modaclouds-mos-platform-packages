@@ -76,7 +76,7 @@
 		
 		"package:name" : "modaclouds-services-fg-analyzer",
 		"package:version" : "0.7.0_dev",
-		"package:release" : "@{execution:timestamp}",
+		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 		
 		"distribution:name" : "fg-analyzer",
 		"distribution:version" : "1.0.1",

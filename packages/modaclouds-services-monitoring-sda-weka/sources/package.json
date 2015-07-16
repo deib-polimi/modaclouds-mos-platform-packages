@@ -81,7 +81,7 @@
 		
 		"package:name" : "modaclouds-services-monitoring-sda-weka",
 		"package:version" : "0.7.0_dev",
-		"package:release" : "@{execution:timestamp}",
+		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 		
 		"distribution:name" : "sda-weka",
 		"distribution:version" : "1.2",

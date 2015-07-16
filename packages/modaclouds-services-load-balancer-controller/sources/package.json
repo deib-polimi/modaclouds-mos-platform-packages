@@ -96,7 +96,7 @@
 		
 		"package:name" : "modaclouds-services-load-balancer-controller",
 		"package:version" : "0.7.0_dev",
-		"package:release" : "@{execution:timestamp}",
+		"package:release" : "@{execution:timestamp}_@{definitions:versions:modaclouds:lb-controller}",
 		
 		"versions:modaclouds:lb-controller" : "0.2.8",
 		

@@ -74,7 +74,7 @@
 		
 		"package:name" : "modaclouds-services-fuseki",
 		"package:version" : "0.7.0_dev",
-		"package:release" : "@{execution:timestamp}",
+		"package:release" : "@{execution:timestamp}_@{definitions:versions:modaclouds:fuseki}",
 		
 		"versions:modaclouds:fuseki" : "1.1.2",
 		

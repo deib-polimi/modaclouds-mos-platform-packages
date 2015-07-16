@@ -74,7 +74,7 @@
 		
 		"package:name" : "modaclouds-services-metric-importer",
 		"package:version" : "0.7.0_dev",
-		"package:release" : "@{execution:timestamp}",
+		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 		
 		"distribution:version" : "1.0",
 		"distribution:url:root" : "http://data.volution.ro/modaclouds/public/distributions",

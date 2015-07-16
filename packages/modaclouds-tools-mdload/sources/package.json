@@ -71,7 +71,7 @@
 		
 		"package:name" : "modaclouds-tools-mdload",
 		"package:version" : "0.7.0_dev",
-		"package:release" : "@{execution:timestamp}",
+		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 		
 		"distribution:name" : "mdload",
 		"distribution:version" : "0.1.0",

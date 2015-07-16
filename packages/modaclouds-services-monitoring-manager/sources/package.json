@@ -72,7 +72,7 @@
 		
 		"package:name" : "modaclouds-services-monitoring-manager",
 		"package:version" : "0.7.0_dev",
-		"package:release" : "@{execution:timestamp}",
+		"package:release" : "@{execution:timestamp}_@{definitions:versions:modaclouds:manager}",
 		
 		"versions:modaclouds:manager" : "1.2",
 		
