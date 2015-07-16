@@ -1,0 +1,43 @@
+{
+	"_schema" : "tag:ieat.ro,2014:mosaic:v2:mos-package-builder:descriptors:composite-package",
+	"_schema/version" : 1,
+	
+	"package" : {
+		"name" : "@{definitions:package:name}",
+		"version" : "@{definitions:package:version}",
+		"release" : "@{definitions:package:release}",
+		"architecture" : "i686",
+		"root" : "/opt/@{package:identifier}"
+	},
+	
+	"dependencies" : {
+		"requires" : [
+			"modaclouds-tools-mdload == @{package:version}"
+		]
+	},
+	
+	"miscellaneous" : {
+		"license" : "apache-2.0",
+		"url" : "http://www.modaclouds.eu/",
+		"summary" : "MODAClouds platform tools"
+	},
+	
+	"overlays" : [
+		{
+			"generator" : "folders",
+			"target" : "@{package:root}",
+			"folders" : [
+				"/"
+			]
+		}
+	],
+	
+	"resources" : {
+	},
+	
+	"definitions" : {
+		"package:name" : "modaclouds-platform-tools",
+		"package:version" : "0.7.0_dev",
+		"package:release" : "@{execution:timestamp}"
+	}
+}

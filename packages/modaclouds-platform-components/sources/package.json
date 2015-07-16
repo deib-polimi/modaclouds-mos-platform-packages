@@ -1,0 +1,57 @@
+{
+	"_schema" : "tag:ieat.ro,2014:mosaic:v2:mos-package-builder:descriptors:composite-package",
+	"_schema/version" : 1,
+	
+	"package" : {
+		"name" : "@{definitions:package:name}",
+		"version" : "@{definitions:package:version}",
+		"release" : "@{definitions:package:release}",
+		"architecture" : "i686",
+		"root" : "/opt/@{package:identifier}"
+	},
+	
+	"dependencies" : {
+		"requires" : [
+			"mosaic-components-couchdb == @{package:version}",
+			"mosaic-components-rabbitmq == @{package:version}",
+			"mosaic-components-riak-kv == @{package:version}",
+			"mosaic-components-mysql == @{package:version}",
+			"mosaic-components-me2cp == @{package:version}",
+			"mosaic-object-store == @{package:version}",
+			"modaclouds-components-fuseki == @{package:version}",
+			"modaclouds-components-monitoring-manager == @{package:version}",
+			"modaclouds-components-monitoring-dda == @{package:version}",
+			"modaclouds-components-monitoring-sda-matlab == @{package:version}",
+			"modaclouds-components-monitoring-sda-weka == @{package:version}",
+			"modaclouds-components-load-balancer-controller == @{package:version}",
+			"modaclouds-components-load-balancer-reasoner == @{package:version}",
+			"modaclouds-components-metric-explorer == @{package:version}",
+			"modaclouds-components-metric-importer == @{package:version}"
+		]
+	},
+	
+	"miscellaneous" : {
+		"license" : "apache-2.0",
+		"url" : "http://www.modaclouds.eu/",
+		"summary" : "MODAClouds platform components"
+	},
+	
+	"overlays" : [
+		{
+			"generator" : "folders",
+			"target" : "@{package:root}",
+			"folders" : [
+				"/"
+			]
+		}
+	],
+	
+	"resources" : {
+	},
+	
+	"definitions" : {
+		"package:name" : "modaclouds-platform-components",
+		"package:version" : "0.7.0_dev",
+		"package:release" : "@{execution:timestamp}"
+	}
+}

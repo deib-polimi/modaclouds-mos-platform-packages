@@ -1,0 +1,53 @@
+{
+	"_schema" : "tag:ieat.ro,2014:mosaic:v2:mos-package-builder:descriptors:composite-package",
+	"_schema/version" : 1,
+	
+	"package" : {
+		"name" : "@{definitions:package:name}",
+		"version" : "@{definitions:package:version}",
+		"release" : "@{definitions:package:release}",
+		"architecture" : "i686",
+		"root" : "/opt/@{package:identifier}"
+	},
+	
+	"dependencies" : {
+		"requires" : [
+			"modaclouds-services-fg-analyzer == @{package:version}",
+			"modaclouds-services-fg-local-db == @{package:version}",
+			"modaclouds-services-fuseki == @{package:version}",
+			"modaclouds-services-monitoring-sda-matlab == @{package:version}",
+			"modaclouds-services-monitoring-sda-weka == @{package:version}",
+			"modaclouds-services-load-balancer-controller == @{package:version}",
+			"modaclouds-services-load-balancer-reasoner == @{package:version}",
+			"modaclouds-services-metric-explorer == @{package:version}",
+			"modaclouds-services-metric-importer == @{package:version}",
+			"modaclouds-services-models-at-runtime == @{package:version}",
+			"modaclouds-services-sla-core == @{package:version}"
+		]
+	},
+	
+	"miscellaneous" : {
+		"license" : "apache-2.0",
+		"url" : "http://www.modaclouds.eu/",
+		"summary" : "MODAClouds platform services"
+	},
+	
+	"overlays" : [
+		{
+			"generator" : "folders",
+			"target" : "@{package:root}",
+			"folders" : [
+				"/"
+			]
+		}
+	],
+	
+	"resources" : {
+	},
+	
+	"definitions" : {
+		"package:name" : "modaclouds-platform-services",
+		"package:version" : "0.7.0_dev",
+		"package:release" : "@{execution:timestamp}"
+	}
+}

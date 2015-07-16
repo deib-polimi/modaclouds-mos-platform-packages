@@ -3,8 +3,14 @@
 cat <<EOS
 
 modaclouds-platform-core@package : mosaic-node-boot@package | mosaic-node-boot@publish
+modaclouds-platform-components@package :
+modaclouds-platform-services@package :
+modaclouds-platform-tools@package :
 
 modaclouds-platform-core@publish :
+modaclouds-platform-components@publish :
+modaclouds-platform-services@publish :
+modaclouds-platform-tools@publish :
 
 modaclouds-services-fg-analyzer@package :
 modaclouds-services-fg-local-db@package :
