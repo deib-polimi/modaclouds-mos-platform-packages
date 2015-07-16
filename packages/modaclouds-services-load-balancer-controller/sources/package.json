@@ -31,7 +31,7 @@
 				"/",
 				"/bin",
 				"/lib",
-				"/lib/lb-controller",
+				"/lib/distribution",
 				"/lib/virtualenv",
 				"/lib/scripts"
 			]
@@ -45,7 +45,7 @@
 		},
 		{
 			"generator" : "unarchiver",
-			"target" : "@{package:root}/lib/lb-controller",
+			"target" : "@{package:root}/lib/distribution",
 			"resource" : "lb-controller-sources.tar.gz",
 			"format" : "tar+gzip",
 			"options" : {
@@ -103,8 +103,7 @@
 		"resources:modaclouds:url:base" : "http://data.volution.ro/modaclouds/public",
 		"resources:modaclouds:url:distributions" : "@{definitions:resources:modaclouds:url:base}/distributions/@{definitions:package:name}/@{definitions:versions:modaclouds:lb-controller}",
 		
-		"environment:LB_CONTROLLER_HOME" : "@{package:root}/lib/lb-controller",
-		"environment:LB_CONTROLLER_CONF" : "@{package:root}/etc/lb-controller",
+		"environment:LB_CONTROLLER_HOME" : "@{package:root}/lib/distribution",
 		
 		"environment:LB_CONTROLLER_ENDPOINT_IP" : "0.0.0.0",
 		"environment:LB_CONTROLLER_ENDPOINT_PORT" : "8088",

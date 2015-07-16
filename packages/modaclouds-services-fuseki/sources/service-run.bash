@@ -22,7 +22,6 @@ exec </dev/null >&2
 _variable_defaults=(
 		
 		_FUSEKI_HOME='@{definitions:environment:FUSEKI_HOME}'
-		_FUSEKI_CONF='@{definitions:environment:FUSEKI_CONF}'
 		_FUSEKI_VAR='@{definitions:environment:FUSEKI_VAR}'
 		_FUSEKI_ENDPOINT_IP='@{definitions:environment:FUSEKI_ENDPOINT_IP}'
 		_FUSEKI_ENDPOINT_PORT='@{definitions:environment:FUSEKI_ENDPOINT_PORT}'
@@ -50,7 +49,6 @@ fi
 
 _variable_overrides=(
 		
-		_FUSEKI_CONF="${MODACLOUDS_FUSEKI_CONF:-${_FUSEKI_CONF}}"
 		_FUSEKI_VAR="${MODACLOUDS_FUSEKI_VAR:-${_FUSEKI_VAR}}"
 		_FUSEKI_ENDPOINT_IP="${MODACLOUDS_FUSEKI_ENDPOINT_IP:-${_FUSEKI_ENDPOINT_IP}}"
 		_FUSEKI_ENDPOINT_PORT="${MODACLOUDS_FUSEKI_ENDPOINT_PORT:-${_FUSEKI_ENDPOINT_PORT}}"
