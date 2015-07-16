@@ -12,16 +12,17 @@
 	
 	"dependencies" : {
 		"requires" : [
+			"modaclouds-object-store == @{package:version}",
 			"modaclouds-services-fg-analyzer == @{package:version}",
 			"modaclouds-services-fg-local-db == @{package:version}",
 			"modaclouds-services-fuseki == @{package:version}",
-			"modaclouds-services-monitoring-sda-matlab == @{package:version}",
-			"modaclouds-services-monitoring-sda-weka == @{package:version}",
 			"modaclouds-services-load-balancer-controller == @{package:version}",
 			"modaclouds-services-load-balancer-reasoner == @{package:version}",
 			"modaclouds-services-metric-explorer == @{package:version}",
 			"modaclouds-services-metric-importer == @{package:version}",
 			"modaclouds-services-models-at-runtime == @{package:version}",
+			"modaclouds-services-monitoring-sda-matlab == @{package:version}",
+			"modaclouds-services-monitoring-sda-weka == @{package:version}",
 			"modaclouds-services-sla-core == @{package:version}"
 		]
 	},

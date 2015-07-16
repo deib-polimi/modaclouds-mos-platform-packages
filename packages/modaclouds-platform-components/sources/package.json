@@ -12,21 +12,21 @@
 	
 	"dependencies" : {
 		"requires" : [
-			"mosaic-components-couchdb == @{package:version}",
-			"mosaic-components-rabbitmq == @{package:version}",
-			"mosaic-components-riak-kv == @{package:version}",
-			"mosaic-components-mysql == @{package:version}",
-			"mosaic-components-me2cp == @{package:version}",
-			"mosaic-object-store == @{package:version}",
 			"modaclouds-components-fuseki == @{package:version}",
-			"modaclouds-components-monitoring-manager == @{package:version}",
-			"modaclouds-components-monitoring-dda == @{package:version}",
-			"modaclouds-components-monitoring-sda-matlab == @{package:version}",
-			"modaclouds-components-monitoring-sda-weka == @{package:version}",
 			"modaclouds-components-load-balancer-controller == @{package:version}",
 			"modaclouds-components-load-balancer-reasoner == @{package:version}",
 			"modaclouds-components-metric-explorer == @{package:version}",
-			"modaclouds-components-metric-importer == @{package:version}"
+			"modaclouds-components-metric-importer == @{package:version}",
+			"modaclouds-components-monitoring-dda == @{package:version}",
+			"modaclouds-components-monitoring-manager == @{package:version}",
+			"modaclouds-components-monitoring-sda-matlab == @{package:version}",
+			"modaclouds-components-monitoring-sda-weka == @{package:version}",
+			"mosaic-components-couchdb == @{package:version}",
+			"mosaic-components-me2cp == @{package:version}",
+			"mosaic-components-mysql == @{package:version}",
+			"mosaic-components-rabbitmq == @{package:version}",
+			"mosaic-components-riak-kv == @{package:version}",
+			"mosaic-object-store == @{package:version}"
 		]
 	},
 	
