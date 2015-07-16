@@ -73,7 +73,7 @@
 	"definitions" : {
 		
 		"package:name" : "_modaclouds-services-template",
-		"package:version" : "0.0.0-@{definitions:distribution:version}",
+		"package:version" : "0.7.0_dev_@{definitions:distribution:version}",
 		"package:release" : "@{execution:timestamp}",
 		
 		"distribution:name" : "example",
