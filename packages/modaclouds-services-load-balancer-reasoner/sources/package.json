@@ -32,8 +32,8 @@
 				"/bin",
 				"/etc",
 				"/lib",
-				"/etc/lb-reasoner",
-				"/lib/lb-reasoner",
+				"/etc/distribution",
+				"/lib/distribution",
 				"/lib/scripts"
 			]
 		},
@@ -53,7 +53,7 @@
 		},
 		{
 			"generator" : "unarchiver",
-			"target" : "@{package:root}/lib/lb-reasoner",
+			"target" : "@{package:root}/lib/distribution",
 			"resource" : "distribution.tar.gz",
 			"format" : "tar+gzip",
 			"options" : {
@@ -62,14 +62,14 @@
 		},
 		{
 			"generator" : "unlinks",
-			"target" : "@{package:root}/lib/lb-reasoner",
+			"target" : "@{package:root}/lib/distribution",
 			"unlinks" : [
 				"/run_main.sh"
 			]
 		},
 		{
 			"generator" : "file-creator",
-			"target" : "@{package:root}/etc/lb-reasoner/configuration_LB.xml",
+			"target" : "@{package:root}/etc/distribution/configuration_LB.xml",
 			"resource" : "configuration.xml",
 			"executable" : false,
 			"expand" : true
@@ -77,17 +77,17 @@
 	],
 	
 	"resources" : {
-		"service-run.bash" : {
-			"generator" : "sources",
-			"path" : "service-run.bash"
-		},
 		"distribution.tar.gz" : {
 			"generator" : "fetcher",
 			"uri" : "@{definitions:distribution:url:base}/distribution.tar.gz"
 		},
+		"service-run.bash" : {
+			"generator" : "fetcher",
+			"uri" : "@{definitions:distribution:url:base}/service-run.bash"
+		},
 		"configuration.xml" : {
-			"generator" : "sources",
-			"path" : "lb-reasoner-configuration.xml"
+			"generator" : "fetcher",
+			"uri" : "@{definitions:distribution:url:base}/lb-reasoner-configuration.xml"
 		}
 	},
 	
@@ -102,15 +102,18 @@
 		"distribution:url:root" : "http://ftp.modaclouds.eu/public/distributions",
 		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		
-		"environment:LB_REASONER_HOME" : "@{package:root}/lib/lb-reasoner",
-		"environment:LB_REASONER_CONF" : "@{package:root}/etc/lb-reasoner",
+		"environment:LB_REASONER_DISTRIBUTION" : "@{package:root}/lib/distribution",
+		"environment:LB_REASONER_PATH" : "definitions:environment:OBJECT_STORE_ENDPOINT_IP",
 		
-		"environment:LB_CONTROLLER_ENDPOINT_IP" : "0.0.0.0",
-		"environment:LB_CONTROLLER_ENDPOINT_PORT" : "8088",
+		"environment:OBJECT_STORE_ENDPOINT_IP" : "0.0.0.0",
+		"environment:OBJECT_STORE_ENDPOINT_PORT" : "20622",
 		
-		"environment:LB_GATEWAY_ENDPOINT_IP" : "0.0.0.0",
-		"environment:LB_GATEWAY_ENDPOINT_PORT_MIN" : "8000",
-		"environment:LB_GATEWAY_ENDPOINT_PORT_MAX" : "8080",
+		"##environment:LB_CONTROLLER_ENDPOINT_IP" : "0.0.0.0",
+		"##environment:LB_CONTROLLER_ENDPOINT_PORT" : "8088",
+		
+		"##environment:LB_GATEWAY_ENDPOINT_IP" : "0.0.0.0",
+		"##environment:LB_GATEWAY_ENDPOINT_PORT_MIN" : "8000",
+		"##environment:LB_GATEWAY_ENDPOINT_PORT_MAX" : "8080",
 		
 		"environment:MCR_HOME" : "/opt/modaclouds-rt-matlab-mcr-r2013a/v81",
 		"environment:JAVA_HOME" : "/opt/mosaic-rt-jre-7",
