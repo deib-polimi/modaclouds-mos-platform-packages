@@ -12,7 +12,6 @@
 	
 	"dependencies" : {
 		"requires" : [
-			"modaclouds-rt-matlab-mcr-r2013a",
 			"mosaic-rt-jre-7"
 		]
 	},
@@ -29,9 +28,25 @@
 			"target" : "@{package:root}",
 			"folders" : [
 				"/",
+				"/bin",
 				"/lib",
-				"/lib/distribution"
+				"/lib/distribution",
+				"/lib/scripts"
 			]
+		},
+		{
+			"generator" : "file-creator",
+			"target" : "@{package:root}/lib/scripts/run.bash",
+			"resource" : "service-run.bash",
+			"executable" : true,
+			"expand" : true
+		},
+		{
+			"generator" : "symlinks",
+			"target" : "@{package:root}/bin",
+			"links" : {
+				"@{package:name}--run-service" : "../lib/scripts/run.bash"
+			}
 		},
 		{
 			"generator" : "unarchiver",
@@ -48,13 +63,17 @@
 		"distribution.tar.gz" : {
 			"generator" : "fetcher",
 			"uri" : "@{definitions:distribution:url:base}/distribution.tar.gz"
+		},
+		"service-run.bash" : {
+			"generator" : "fetcher",
+			"uri" : "@{definitions:distribution:url:base}/service-run.bash"
 		}
 	},
 	
 	"definitions" : {
 		
 		"package:name" : "modaclouds-services-fg-local-db",
-		"package:version" : "0.0.0-@{definitions:distribution:version}",
+		"package:version" : "0.7.0_dev_@{definitions:distribution:version}",
 		"package:release" : "@{execution:timestamp}",
 		
 		"distribution:name" : "fg-local-db",
@@ -62,7 +81,14 @@
 		"distribution:url:root" : "http://ftp.modaclouds.eu/public/distributions",
 		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		
-		"environment:MCR_HOME" : "/opt/modaclouds-rt-matlab-mcr-r2013a/v81",
+		"environment:FG_LOCALDB_DISTRIBUTION" : "@{package:root}/lib/distribution",
+		"environment:FG_PATH" : "/v1/collections/FG/",
+		"environment:FG_LOCALDB_METRICS" : "fg_metrics.properties",
+		"environment:OBJECT_STORE_ENDPOINT_IP" : "0.0.0.0",
+		"environment:OBJECT_STORE_ENDPOINT_PORT" : "20622",
+		"environment:HISTORYDB_ENDPOINT_IP" : "0.0.0.0",
+		"environment:HISTORYDB_ENDPOINT_PORT" : "3030",
+		
 		"environment:JAVA_HOME" : "/opt/mosaic-rt-jre-7",
 		"environment:PATH" : "@{definitions:environment:JAVA_HOME}/bin:/usr/bin:/bin",
 		"environment:TMPDIR" : "/tmp/modaclouds/@{package:identifier}"
