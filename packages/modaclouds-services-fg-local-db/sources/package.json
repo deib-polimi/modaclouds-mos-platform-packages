@@ -73,7 +73,7 @@
 	"definitions" : {
 		
 		"package:name" : "modaclouds-services-fg-local-db",
-		"package:version" : "0.7.0_dev_@{definitions:distribution:version}",
+		"package:version" : "0.7.0_dev",
 		"package:release" : "@{execution:timestamp}",
 		
 		"distribution:name" : "fg-local-db",

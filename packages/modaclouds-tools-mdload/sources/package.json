@@ -70,7 +70,7 @@
 	"definitions" : {
 		
 		"package:name" : "modaclouds-tools-mdload",
-		"package:version" : "@{definitions:resources:distribution:version}",
+		"package:version" : "0.7.0_dev",
 		"package:release" : "@{execution:timestamp}",
 		
 		"distribution:name" : "mdload",
