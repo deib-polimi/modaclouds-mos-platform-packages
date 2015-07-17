@@ -12,7 +12,6 @@
 	
 	"dependencies" : {
 		"requires" : [
-			"modaclouds-object-store == @{package:version}",
 			"modaclouds-services-fg-analyzer == @{package:version}",
 			"modaclouds-services-fg-local-db == @{package:version}",
 			"modaclouds-services-fuseki == @{package:version}",
@@ -23,7 +22,11 @@
 			"modaclouds-services-models-at-runtime == @{package:version}",
 			"modaclouds-services-monitoring-sda-matlab == @{package:version}",
 			"modaclouds-services-monitoring-sda-weka == @{package:version}",
-			"modaclouds-services-sla-core == @{package:version}"
+			"modaclouds-services-sla-core == @{package:version}",
+			"modaclouds-services-tower4clouds-data-analyzer == @{package:version}",
+			"modaclouds-services-tower4clouds-manager == @{package:version}",
+			"modaclouds-services-tower4clouds-rdf-history-db == @{package:version}",
+			"mosaic-object-store == @{package:version}"
 		]
 	},
 	
