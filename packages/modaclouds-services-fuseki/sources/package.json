@@ -19,7 +19,7 @@
 	"miscellaneous" : {
 		"license" : "apache-2.0",
 		"url" : "http://www.modaclouds.eu/",
-		"summary" : "MODAClouds services: Fuseki (@{definitions:versions:modaclouds:fuseki})"
+		"summary" : "MODAClouds services: Fuseki (@{definitions:distribution:version})"
 	},
 	
 	"overlays" : [
@@ -35,9 +35,16 @@
 			]
 		},
 		{
+			"generator" : "symlinks",
+			"target" : "@{package:root}/bin",
+			"links" : {
+				"@{package:name}--run-service" : "../lib/scripts/run.bash"
+			}
+		},
+		{
 			"generator" : "unarchiver",
 			"target" : "@{package:root}/lib/fuseki",
-			"resource" : "fuseki-distribution.tar.gz",
+			"resource" : "distribution.tar.gz",
 			"format" : "tar+gzip",
 			"options" : {
 				"strip-components" : 1
@@ -49,24 +56,17 @@
 			"resource" : "service-run.bash",
 			"executable" : true,
 			"expand" : true
-		},
-		{
-			"generator" : "symlinks",
-			"target" : "@{package:root}/bin",
-			"links" : {
-				"@{package:name}--run-service" : "../lib/scripts/run.bash"
-			}
 		}
 	],
 	
 	"resources" : {
+		"distribution.tar.gz" : {
+			"generator" : "fetcher",
+			"uri" : "@{definitions:distribution:url:base}/distribution.tar.gz"
+		},
 		"service-run.bash" : {
 			"generator" : "sources",
 			"path" : "service-run.bash"
-		},
-		"fuseki-distribution.tar.gz" : {
-			"generator" : "fetcher",
-			"uri" : "@{definitions:resources:modaclouds:url:distributions}/distribution.tar.gz"
 		}
 	},
 	
@@ -74,12 +74,12 @@
 		
 		"package:name" : "modaclouds-services-fuseki",
 		"package:version" : "0.7.0_dev",
-		"package:release" : "@{execution:timestamp}_@{definitions:versions:modaclouds:fuseki}",
+		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 		
-		"versions:modaclouds:fuseki" : "1.1.2",
-		
-		"resources:modaclouds:url:base" : "http://data.volution.ro/modaclouds/public",
-		"resources:modaclouds:url:distributions" : "@{definitions:resources:modaclouds:url:base}/distributions/@{definitions:package:name}/@{definitions:versions:modaclouds:fuseki}",
+		"distribution:name" : "@{definitions:package:name}",
+		"distribution:version" : "1.1.2",
+		"distribution:url:root" : "http://data.volution.ro/modaclouds/public/distributions",
+		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		
 		"environment:FUSEKI_HOME" : "@{package:root}/lib/fuseki",
 		"environment:FUSEKI_VAR" : "@{package:root}/var/fuseki",

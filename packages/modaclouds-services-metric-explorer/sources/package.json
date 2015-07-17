@@ -29,14 +29,14 @@
 			"target" : "@{package:root}",
 			"folders" : [
 				"/",
-				"/etc",
 				"/bin",
 				"/lib",
+				"/lib/graphite",
+				"/lib/scripts",
+				"/etc",
 				"/etc/graphite",
 				"/etc/graphite/carbon",
-				"/etc/graphite/webapp",
-				"/lib/graphite",
-				"/lib/scripts"
+				"/etc/graphite/webapp"
 			]
 		},
 		{
@@ -49,7 +49,7 @@
 		{
 			"generator" : "unarchiver",
 			"target" : "@{package:root}/lib/graphite",
-			"resource" : "graphite-distribution.cpio.gz",
+			"resource" : "distribution.cpio.gz",
 			"format" : "cpio+gzip"
 		},
 		{
@@ -65,7 +65,7 @@
 		{
 			"generator" : "patcher",
 			"target" : "@{package:root}/lib/graphite/webapp/graphite/templates",
-			"resource" : "graphite-webapp-templates.patch"
+			"resource" : "webapp-templates.patch"
 		},
 		{
 			"generator" : "unlinks",
@@ -80,49 +80,49 @@
 		{
 			"generator" : "file-creator",
 			"target" : "@{package:root}/lib/graphite/webapp/graphite/graphite_wsgi.py",
-			"resource" : "graphite-webapp-wsgi.py",
+			"resource" : "webapp-wsgi.py",
 			"executable" : false,
 			"expand" : true
 		},
 		{
 			"generator" : "file-creator",
 			"target" : "@{package:root}/lib/graphite/webapp/graphite/local_settings.py",
-			"resource" : "graphite-webapp-settings.py",
+			"resource" : "webapp-settings.py",
 			"executable" : false,
 			"expand" : true
 		},
 		{
 			"generator" : "file-creator",
 			"target" : "@{package:root}/etc/graphite/carbon/carbon.conf",
-			"resource" : "graphite-carbon.conf",
+			"resource" : "carbon.conf",
 			"executable" : false,
 			"expand" : true
 		},
 		{
 			"generator" : "file-creator",
 			"target" : "@{package:root}/etc/graphite/carbon/storage-schemas.conf",
-			"resource" : "graphite-storage-schemas.conf",
+			"resource" : "storage-schemas.conf",
 			"executable" : false,
 			"expand" : true
 		},
 		{
 			"generator" : "file-creator",
 			"target" : "@{package:root}/etc/graphite/carbon/storage-aggregation.conf",
-			"resource" : "graphite-storage-aggregation.conf",
+			"resource" : "storage-aggregation.conf",
 			"executable" : false,
 			"expand" : true
 		},
 		{
 			"generator" : "file-creator",
 			"target" : "@{package:root}/etc/graphite/webapp/dashboard.conf",
-			"resource" : "graphite-webapp-dashboard.conf",
+			"resource" : "webapp-dashboard.conf",
 			"executable" : false,
 			"expand" : true
 		},
 		{
 			"generator" : "file-creator",
 			"target" : "@{package:root}/etc/graphite/webapp/graphtemplates.conf",
-			"resource" : "graphite-webapp-graphtemplates.conf",
+			"resource" : "webapp-graphtemplates.conf",
 			"executable" : false,
 			"expand" : true
 		},
@@ -144,45 +144,45 @@
 	],
 	
 	"resources" : {
-		"service-run.bash" : {
-			"generator" : "sources",
-			"path" : "service-run.bash"
-		},
-		"graphite-distribution.cpio.gz" : {
+		"distribution.cpio.gz" : {
 			"generator" : "fetcher",
 			"uri" : "@{definitions:distribution:url:base}/distribution.cpio.gz"
 		},
-		"graphite-carbon.conf" : {
+		"carbon.conf" : {
 			"generator" : "sources",
-			"path" : "graphite-carbon.conf"
+			"path" : "files/carbon.conf"
 		},
-		"graphite-storage-schemas.conf" : {
+		"storage-schemas.conf" : {
 			"generator" : "sources",
-			"path" : "graphite-storage-schemas.conf"
+			"path" : "files/storage-schemas.conf"
 		},
-		"graphite-storage-aggregation.conf" : {
+		"storage-aggregation.conf" : {
 			"generator" : "sources",
-			"path" : "graphite-storage-aggregation.conf"
+			"path" : "files/storage-aggregation.conf"
 		},
-		"graphite-webapp-wsgi.py" : {
+		"webapp-wsgi.py" : {
 			"generator" : "sources",
-			"path" : "graphite-webapp-wsgi.py"
+			"path" : "files/webapp-wsgi.py"
 		},
-		"graphite-webapp-settings.py" : {
+		"webapp-settings.py" : {
 			"generator" : "sources",
-			"path" : "graphite-webapp-settings.py"
+			"path" : "files/webapp-settings.py"
 		},
-		"graphite-webapp-dashboard.conf" : {
+		"webapp-dashboard.conf" : {
 			"generator" : "sources",
-			"path" : "graphite-webapp-dashboard.conf"
+			"path" : "files/webapp-dashboard.conf"
 		},
-		"graphite-webapp-graphtemplates.conf" : {
+		"webapp-graphtemplates.conf" : {
 			"generator" : "sources",
-			"path" : "graphite-webapp-graphtemplates.conf"
+			"path" : "files/webapp-graphtemplates.conf"
 		},
-		"graphite-webapp-templates.patch" : {
+		"webapp-templates.patch" : {
 			"generator" : "sources",
-			"path" : "graphite-webapp-templates.patch"
+			"path" : "files/webapp-templates.patch"
+		},
+		"service-run.bash" : {
+			"generator" : "sources",
+			"path" : "service-run.bash"
 		}
 	},
 	
@@ -192,9 +192,10 @@
 		"package:version" : "0.7.0_dev",
 		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 		
+		"distribution:name" : "@{definitions:package:name}",
 		"distribution:version" : "0.3",
 		"distribution:url:root" : "http://data.volution.ro/modaclouds/public/distributions",
-		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:package:name}/@{definitions:distribution:version}",
+		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		
 		"environment:GRAPHITE_ROOT" : "@{package:root}/lib/graphite",
 		"environment:GRAPHITE_CONF_DIR" : "@{package:root}/etc/graphite/carbon",

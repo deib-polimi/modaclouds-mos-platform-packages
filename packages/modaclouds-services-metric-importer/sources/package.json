@@ -28,11 +28,9 @@
 			"target" : "@{package:root}",
 			"folders" : [
 				"/",
-				"/etc",
 				"/bin",
 				"/lib",
-				"/etc/importer",
-				"/lib/importer",
+				"/lib/distribution",
 				"/lib/scripts"
 			]
 		},
@@ -45,8 +43,8 @@
 		},
 		{
 			"generator" : "file-creator",
-			"target" : "@{package:root}/lib/importer/service.jar",
-			"resource" : "importer-service.jar",
+			"target" : "@{package:root}/lib/distribution/service.jar",
+			"resource" : "distribution.jar",
 			"executable" : false,
 			"expand" : false
 		},
@@ -60,13 +58,13 @@
 	],
 	
 	"resources" : {
+		"distribution.jar" : {
+			"generator" : "fetcher",
+			"uri" : "@{definitions:distribution:url:base}/distribution.jar"
+		},
 		"service-run.bash" : {
 			"generator" : "sources",
 			"path" : "service-run.bash"
-		},
-		"importer-service.jar" : {
-			"generator" : "fetcher",
-			"uri" : "@{definitions:distribution:url:base}/service.jar"
 		}
 	},
 	
@@ -76,11 +74,12 @@
 		"package:version" : "0.7.0_dev",
 		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 		
+		"distribution:name" : "@{definitions:package:name}",
 		"distribution:version" : "1.0",
 		"distribution:url:root" : "http://data.volution.ro/modaclouds/public/distributions",
-		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:package:name}/@{definitions:distribution:version}",
+		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		
-		"environment:IMPORTER_HOME" : "@{package:root}/lib/importer",
+		"environment:IMPORTER_HOME" : "@{package:root}/lib/distribution",
 		"environment:IMPORTER_ENDPOINT_IP" : "0.0.0.0",
 		"environment:IMPORTER_ENDPOINT_PORT" : "9019",
 		

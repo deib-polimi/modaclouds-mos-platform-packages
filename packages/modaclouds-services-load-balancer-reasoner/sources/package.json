@@ -30,19 +30,10 @@
 			"folders" : [
 				"/",
 				"/bin",
-				"/etc",
 				"/lib",
-				"/etc/distribution",
 				"/lib/distribution",
 				"/lib/scripts"
 			]
-		},
-		{
-			"generator" : "file-creator",
-			"target" : "@{package:root}/lib/scripts/run.bash",
-			"resource" : "service-run.bash",
-			"executable" : true,
-			"expand" : true
 		},
 		{
 			"generator" : "symlinks",
@@ -69,9 +60,9 @@
 		},
 		{
 			"generator" : "file-creator",
-			"target" : "@{package:root}/etc/distribution/configuration_LB.xml",
-			"resource" : "configuration.xml",
-			"executable" : false,
+			"target" : "@{package:root}/lib/scripts/run.bash",
+			"resource" : "service-run.bash",
+			"executable" : true,
 			"expand" : true
 		}
 	],
@@ -84,10 +75,6 @@
 		"service-run.bash" : {
 			"generator" : "fetcher",
 			"uri" : "@{definitions:distribution:url:base}/service-run.bash"
-		},
-		"configuration.xml" : {
-			"generator" : "fetcher",
-			"uri" : "@{definitions:distribution:url:base}/lb-reasoner-configuration.xml"
 		}
 	},
 	

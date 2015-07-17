@@ -20,7 +20,7 @@
 	"miscellaneous" : {
 		"license" : "apache-2.0",
 		"url" : "http://www.modaclouds.eu/",
-		"summary" : "MODAClouds services: load-balancer controller (@{definitions:versions:modaclouds:lb-controller})"
+		"summary" : "MODAClouds services: load-balancer controller (@{definitions:distribution:version})"
 	},
 	
 	"overlays" : [
@@ -46,7 +46,7 @@
 		{
 			"generator" : "unarchiver",
 			"target" : "@{package:root}/lib/distribution",
-			"resource" : "lb-controller-sources.tar.gz",
+			"resource" : "distribution.tar.gz",
 			"format" : "tar+gzip",
 			"options" : {
 				"strip-components" : 1
@@ -55,7 +55,7 @@
 		{
 			"generator" : "unarchiver",
 			"target" : "@{package:root}/lib/virtualenv",
-			"resource" : "lb-controller-virtualenv.tar.gz",
+			"resource" : "virtualenv.tar.gz",
 			"format" : "tar+gzip",
 			"options" : {
 				"strip-components" : 1
@@ -78,17 +78,17 @@
 	],
 	
 	"resources" : {
+		"distribution.tar.gz" : {
+			"generator" : "fetcher",
+			"uri" : "@{definitions:distribution:url:base}/distribution.tar.gz"
+		},
+		"virtualenv.tar.gz" : {
+			"generator" : "fetcher",
+			"uri" : "@{definitions:distribution:url:base}/virtualenv.tar.gz"
+		},
 		"service-run.bash" : {
 			"generator" : "sources",
 			"path" : "service-run.bash"
-		},
-		"lb-controller-sources.tar.gz" : {
-			"generator" : "fetcher",
-			"uri" : "@{definitions:resources:modaclouds:url:distributions}/sources.tar.gz"
-		},
-		"lb-controller-virtualenv.tar.gz" : {
-			"generator" : "fetcher",
-			"uri" : "@{definitions:resources:modaclouds:url:distributions}/virtualenv.tar.gz"
 		}
 	},
 	
@@ -96,12 +96,12 @@
 		
 		"package:name" : "modaclouds-services-load-balancer-controller",
 		"package:version" : "0.7.0_dev",
-		"package:release" : "@{execution:timestamp}_@{definitions:versions:modaclouds:lb-controller}",
+		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 		
-		"versions:modaclouds:lb-controller" : "0.2.8",
-		
-		"resources:modaclouds:url:base" : "http://data.volution.ro/modaclouds/public",
-		"resources:modaclouds:url:distributions" : "@{definitions:resources:modaclouds:url:base}/distributions/@{definitions:package:name}/@{definitions:versions:modaclouds:lb-controller}",
+		"distribution:name" : "@{definitions:package:name}",
+		"distribution:version" : "0.2.8",
+		"distribution:url:root" : "http://data.volution.ro/modaclouds/public/distributions",
+		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		
 		"environment:LB_CONTROLLER_HOME" : "@{package:root}/lib/distribution",
 		

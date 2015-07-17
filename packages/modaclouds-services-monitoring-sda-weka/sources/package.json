@@ -35,13 +35,6 @@
 			]
 		},
 		{
-			"generator" : "file-creator",
-			"target" : "@{package:root}/lib/scripts/run.bash",
-			"resource" : "service-run.bash",
-			"executable" : true,
-			"expand" : true
-		},
-		{
 			"generator" : "symlinks",
 			"target" : "@{package:root}/bin",
 			"links" : {
@@ -63,6 +56,13 @@
 			"links" : {
 				"service.jar" : "./sda-weka-@{definitions:distribution:version}.jar"
 			}
+		},
+		{
+			"generator" : "file-creator",
+			"target" : "@{package:root}/lib/scripts/run.bash",
+			"resource" : "service-run.bash",
+			"executable" : true,
+			"expand" : true
 		}
 	],
 	

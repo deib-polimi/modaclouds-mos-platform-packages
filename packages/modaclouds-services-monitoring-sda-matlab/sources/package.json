@@ -30,19 +30,10 @@
 			"folders" : [
 				"/",
 				"/bin",
-				"/etc",
 				"/lib",
-				"/etc/distribution",
 				"/lib/distribution",
 				"/lib/scripts"
 			]
-		},
-		{
-			"generator" : "file-creator",
-			"target" : "@{package:root}/lib/scripts/run.bash",
-			"resource" : "service-run.bash",
-			"executable" : true,
-			"expand" : true
 		},
 		{
 			"generator" : "symlinks",
@@ -62,9 +53,9 @@
 		},
 		{
 			"generator" : "file-creator",
-			"target" : "@{package:root}/etc/distribution/config.properties",
-			"resource" : "config.properties",
-			"executable" : false,
+			"target" : "@{package:root}/lib/scripts/run.bash",
+			"resource" : "service-run.bash",
+			"executable" : true,
 			"expand" : true
 		}
 	],
@@ -77,10 +68,6 @@
 		"service-run.bash" : {
 			"generator" : "fetcher",
 			"uri" : "@{definitions:distribution:url:base}/service-run.bash"
-		},
-		"config.properties" : {
-			"generator" : "fetcher",
-			"uri" : "@{definitions:distribution:url:base}/sda-matlab-config.properties"
 		}
 	},
 	
