@@ -12,7 +12,7 @@
 	
 	"dependencies" : {
 		"requires" : [
-			"modaclouds-services-monitoring-manager == @{package:version}",
+			"modaclouds-services-@{definitions:service:name} == @{package:version}",
 			"glibc-32bit"
 		]
 	},
@@ -20,7 +20,7 @@
 	"miscellaneous" : {
 		"license" : "apache-2.0",
 		"url" : "http://www.modaclouds.eu/",
-		"summary" : "MODAClouds components: monitoring manager"
+		"summary" : "MODAClouds components: @{definitions:component:name} / @{definitions:service:name}"
 	},
 	
 	"overlays" : [
@@ -52,7 +52,7 @@
 			"generator" : "symlinks",
 			"target" : "@{package:root}/env/variables",
 			"links" : {
-				"@@a:modaclouds_monitoring_manager_run" : "/opt/modaclouds-services-monitoring-manager-@{package:version}/bin/modaclouds-services-monitoring-manager--run-service"
+				"@@a:modaclouds_service_run" : "/opt/modaclouds-services-@{definitions:service:name}-@{package:version}/bin/modaclouds-services-@{definitions:service:name}--run-service"
 			}
 		}
 	],
@@ -67,9 +67,12 @@
 	
 	"definitions" : {
 		
-		"package:name" : "modaclouds-components-monitoring-manager",
+		"package:name" : "modaclouds-components-@{definitions:component:name}",
 		"package:version" : "0.7.0_dev",
 		"package:release" : "@{execution:timestamp}",
+		
+		"component:name" : "monitoring-manager",
+		"service:name" : "tower4clouds-manager",
 		
 		"resources:modaclouds:url:base" : "http://data.volution.ro/modaclouds/public",
 		"resources:modaclouds:url:packages" : "@{definitions:resources:modaclouds:url:base}/packages",

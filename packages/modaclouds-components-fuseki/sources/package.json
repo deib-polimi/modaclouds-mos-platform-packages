@@ -12,7 +12,7 @@
 	
 	"dependencies" : {
 		"requires" : [
-			"modaclouds-services-fuseki == @{package:version}",
+			"modaclouds-services-@{definitions:service:name} == @{package:version}",
 			"glibc-32bit"
 		]
 	},
@@ -20,7 +20,7 @@
 	"miscellaneous" : {
 		"license" : "apache-2.0",
 		"url" : "http://www.modaclouds.eu/",
-		"summary" : "MODAClouds components: fuseki"
+		"summary" : "MODAClouds components: @{definitions:component:name} / @{definitions:service:name}"
 	},
 	
 	"overlays" : [
@@ -52,7 +52,7 @@
 			"generator" : "symlinks",
 			"target" : "@{package:root}/env/variables",
 			"links" : {
-				"@@a:modaclouds_fuseki_run" : "/opt/modaclouds-services-fuseki-@{package:version}/bin/modaclouds-services-fuseki--run-service"
+				"@@a:modaclouds_service_run" : "/opt/modaclouds-services-@{definitions:service:name}-@{package:version}/bin/modaclouds-services-@{definitions:service:name}--run-service"
 			}
 		}
 	],
@@ -67,9 +67,12 @@
 	
 	"definitions" : {
 		
-		"package:name" : "modaclouds-components-fuseki",
+		"package:name" : "modaclouds-components-@{definitions:component:name}",
 		"package:version" : "0.7.0_dev",
 		"package:release" : "@{execution:timestamp}",
+		
+		"component:name" : "fuseki",
+		"service:name" : "fuseki",
 		
 		"resources:modaclouds:url:base" : "http://data.volution.ro/modaclouds/public",
 		"resources:modaclouds:url:packages" : "@{definitions:resources:modaclouds:url:base}/packages",
