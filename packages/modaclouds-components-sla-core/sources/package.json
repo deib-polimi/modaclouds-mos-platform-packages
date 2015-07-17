@@ -1,0 +1,81 @@
+{
+	"_schema" : "tag:ieat.ro,2014:mosaic:v2:mos-package-builder:descriptors:composite-package",
+	"_schema/version" : 1,
+	
+	"package" : {
+		"name" : "@{definitions:package:name}",
+		"version" : "@{definitions:package:version}",
+		"release" : "@{definitions:package:release}",
+		"architecture" : "i686",
+		"root" : "/opt/@{package:identifier}"
+	},
+	
+	"dependencies" : {
+		"requires" : [
+			"modaclouds-services-@{definitions:service:name} == @{package:version}",
+			"glibc-32bit"
+		]
+	},
+	
+	"miscellaneous" : {
+		"license" : "apache-2.0",
+		"url" : "http://www.modaclouds.eu/",
+		"summary" : "MODAClouds components: @{definitions:component:name} / @{definitions:service:name}"
+	},
+	
+	"overlays" : [
+		{
+			"generator" : "folders",
+			"target" : "@{package:root}",
+			"folders" : [
+				"/",
+				"/env",
+				"/env/paths",
+				"/env/variables"
+			]
+		},
+		{
+			"generator" : "unarchiver",
+			"target" : "@{package:root}",
+			"resource" : "package.cpio.gz",
+			"format" : "cpio+gzip"
+		},
+		{
+			"generator" : "symlinks",
+			"target" : "@{package:root}/env/paths",
+			"links" : {
+				"51:bin" : "/bin",
+				"52:usr-bin" : "/usr/bin"
+			}
+		},
+		{
+			"generator" : "symlinks",
+			"target" : "@{package:root}/env/variables",
+			"links" : {
+				"@@a:modaclouds_service_run" : "/opt/modaclouds-services-@{definitions:service:name}-@{package:version}/bin/modaclouds-services-@{definitions:service:name}--run-service"
+			}
+		}
+	],
+	
+	"resources" : {
+		"package.cpio.gz" : {
+			"generator" : "fetcher",
+			"uri" : "@{definitions:resources:modaclouds:url:package}/package.cpio.gz",
+			"cache" : "@{definitions:package:name}--@{definitions:package:version}.cpio.gz"
+		}
+	},
+	
+	"definitions" : {
+		
+		"package:name" : "modaclouds-components-@{definitions:component:name}",
+		"package:version" : "0.7.0_dev",
+		"package:release" : "@{execution:timestamp}",
+		
+		"component:name" : "sla-core",
+		"service:name" : "sla-core",
+		
+		"resources:modaclouds:url:base" : "http://data.volution.ro/modaclouds/public",
+		"resources:modaclouds:url:packages" : "@{definitions:resources:modaclouds:url:base}/packages",
+		"resources:modaclouds:url:package" : "@{definitions:resources:modaclouds:url:packages}/@{definitions:package:name}/@{definitions:package:version}"
+	}
+}
