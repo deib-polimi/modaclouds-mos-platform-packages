@@ -79,7 +79,7 @@
 		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 		
 		"distribution:name" : "fg-analyzer",
-		"distribution:version" : "1.0.1",
+		"distribution:version" : "1.0.3",
 		"distribution:url:root" : "http://ftp.modaclouds.eu/public/distributions",
 		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		

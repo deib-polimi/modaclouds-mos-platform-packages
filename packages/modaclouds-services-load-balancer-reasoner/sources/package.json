@@ -85,7 +85,7 @@
 		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 		
 		"distribution:name" : "lb-reasoner",
-		"distribution:version" : "2.0",
+		"distribution:version" : "2.0.2",
 		"distribution:url:root" : "http://ftp.modaclouds.eu/public/distributions",
 		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		

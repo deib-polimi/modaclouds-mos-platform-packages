@@ -78,14 +78,12 @@
 		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 		
 		"distribution:name" : "sla-core",
-		"distribution:version" : "0.4.0",
+		"distribution:version" : "0.4.1",
 		"distribution:url:root" : "http://ftp.modaclouds.eu/public/distributions",
 		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		
 		"environment:SLACORE_ENDPOINT_IP": "0.0.0.0",
 		"environment:SLACORE_ENDPOINT_PORT": "9040",
-		"environment:SLACORE_PUBLIC_ENDPOINT_IP": "127.0.0.1",
-		"environment:SLACORE_PUBLIC_ENDPOINT_PORT" : "9040",
 		
 		"environment:TOWER4CLOUDS_MANAGER_ENDPOINT_IP": "0.0.0.0",
 		"environment:TOWER4CLOUDS_MANAGER_ENDPOINT_PORT": "8082",
