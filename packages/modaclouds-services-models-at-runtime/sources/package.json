@@ -45,7 +45,10 @@
 			"generator" : "unarchiver",
 			"target" : "@{package:root}/lib/distribution",
 			"resource" : "distribution.tar.gz",
-			"format" : "tar+gzip"
+			"format" : "tar+gzip",
+			"options" : {
+				"strip-components" : 0
+			}
 		},
 		{
 			"generator" : "file-creator",

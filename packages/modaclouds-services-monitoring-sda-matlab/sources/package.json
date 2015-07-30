@@ -48,7 +48,7 @@
 			"resource" : "distribution.tar.gz",
 			"format" : "tar+gzip",
 			"options" : {
-				"strip-components" : 1
+				"strip-components" : 0
 			}
 		},
 		{
