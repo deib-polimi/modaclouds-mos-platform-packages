@@ -90,7 +90,7 @@
 		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		
 		"environment:LB_REASONER_DISTRIBUTION" : "@{package:root}/lib/distribution",
-		"environment:LB_REASONER_PATH" : "definitions:environment:OBJECT_STORE_ENDPOINT_IP",
+		"environment:LB_REASONER_PATH" : "/modaclouds/lb/configuration_LB.xml",
 		
 		"environment:OBJECT_STORE_ENDPOINT_IP" : "0.0.0.0",
 		"environment:OBJECT_STORE_ENDPOINT_PORT" : "20622",
