@@ -72,7 +72,7 @@
 		"package:release" : "@{execution:timestamp}",
 		
 		"component:name" : "monitoring-dda",
-		"service:name" : "tower4clouds-data-analyzer",
+		"service:name" : "monitoring-dda",
 		
 		"resources:modaclouds:url:base" : "http://data.volution.ro/modaclouds/public",
 		"resources:modaclouds:url:packages" : "@{definitions:resources:modaclouds:url:base}/packages",

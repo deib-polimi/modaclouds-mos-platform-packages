@@ -11,6 +11,7 @@
 	},
 	
 	"dependencies" : {
+		"provides" : ["@{definitions:package:name}"],
 		"requires" : [
 			"mosaic-rt-jre-7"
 		]
@@ -19,7 +20,7 @@
 	"miscellaneous" : {
 		"license" : "apache-2.0",
 		"url" : "http://www.modaclouds.eu/",
-		"summary" : "MODAClouds services: Models@@RunTime (@{definitions:distribution:version})"
+		"summary" : "MODAClouds services: T4C data analyzer (@{definitions:distribution:version})"
 	},
 	
 	"overlays" : [
@@ -42,13 +43,11 @@
 			}
 		},
 		{
-			"generator" : "unarchiver",
-			"target" : "@{package:root}/lib/distribution",
-			"resource" : "distribution.tar.gz",
-			"format" : "tar+gzip",
-			"options" : {
-				"strip-components" : 0
-			}
+			"generator" : "file-creator",
+			"target" : "@{package:root}/lib/distribution/service.jar",
+			"resource" : "distribution.jar",
+			"executable" : false,
+			"expand" : false
 		},
 		{
 			"generator" : "file-creator",
@@ -60,39 +59,39 @@
 	],
 	
 	"resources" : {
+		"distribution.jar" : {
+			"generator" : "fetcher",
+			"uri" : "@{definitions:distribution:url:base}/service.jar"
+		},
 		"service-run.bash" : {
 			"generator" : "fetcher",
 			"uri" : "@{definitions:distribution:url:base}/service-run.bash"
-		},
-		"distribution.tar.gz" : {
-			"generator" : "fetcher",
-			"uri" : "@{definitions:distribution:url:base}/distribution.tar.gz"
 		}
 	},
 	
 	"definitions" : {
 		
-		"package:name" : "modaclouds-service-models-at-runtime",
+		"package:name" : "modaclouds-services-monitoring-manager",
 		"package:version" : "0.7.0_dev",
 		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 		
-		"distribution:name" : "mrt",
-		"distribution:version" : "0.3.5",
+		"distribution:name" : "t4c-manager",
+		"distribution:version" : "0.2.3",
 		"distribution:url:root" : "http://ftp.modaclouds.eu/public/distributions",
 		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		
-		"environment:MRT_DISTRIBUTION" : "@{package:root}/lib/distribution",
-		"environment:MRT_ENDPOINT_IP" : "0.0.0.0",
-		"environment:MRT_ENDPOINT_PORT" : "9030",
+		"environment:TOWER4CLOUDS_MANAGER_DISTRIBUTION" : "@{package:root}/lib/distribution",
+		"environment:TOWER4CLOUDS_MANAGER_ENDPOINT_IP" : "0.0.0.0",
+		"environment:TOWER4CLOUDS_MANAGER_ENDPOINT_PORT" : "8170",
 		
-		"environment:MODACLOUDS_MONITORING_MANAGER_ENDPOINT_IP" : "0.0.0.0",
-		"environment:MODACLOUDS_MONITORING_MANAGER_ENDPOINT_PORT" : "8082",
+		"environment:TOWER4CLOUDS_DATA_ANALYZER_ENDPOINT_IP" : "0.0.0.0",
+		"environment:TOWER4CLOUDS_DATA_ANALYZER_ENDPOINT_PORT" : "8175",
 		
-		"environment:MODACLOUDS_TOWER4CLOUDS_MANAGER_PUBLIC_ENDPOINT_IP" : "0.0.0.0",
-		"environment:MODACLOUDS_TOWER4CLOUDS_MANAGER_PUBLIC_ENDPOINT_PORT" : "8082",
+		"environment:TOWER4CLOUDS_DATA_ANALYZER_ENDPOINT_IP_PUBLIC" : "0.0.0.0",
+		"environment:TOWER4CLOUDS_DATA_ANALYZER_ENDPOINT_PORT_PUBLIC" : "8175",
 		
-		"environment:MODACLOUDS_LOAD_BALANCER_CONTROLLER_ENDPOINT_IP" : "0.0.0.0",
-		"environment:MODACLOUDS_LOAD_BALANCER_CONTROLLER_ENDPOINT_PORT" : "8088",
+		"environment:TOWER4CLOUDS_RDF_HISTORY_DB_ENDPOINT_IP" : "0.0.0.0",
+		"environment:TOWER4CLOUDS_RDF_HISTORY_DB_ENDPOINT_PORT" : "31337",
 		
 		"environment:JAVA_HOME" : "/opt/mosaic-rt-jre-7",
 		"environment:PATH" : "@{definitions:environment:JAVA_HOME}/bin:/usr/bin:/bin",

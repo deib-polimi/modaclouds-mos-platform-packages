@@ -20,12 +20,12 @@
 			"modaclouds-services-metric-explorer == @{package:version}",
 			"modaclouds-services-metric-importer == @{package:version}",
 			"modaclouds-services-models-at-runtime == @{package:version}",
+			"modaclouds-services-monitoring-dda == @{package:version}",
+			"modaclouds-services-monitoring-history-db == @{package:version}",
+			"modaclouds-services-monitoring-manager == @{package:version}",
 			"modaclouds-services-monitoring-sda-matlab == @{package:version}",
 			"modaclouds-services-monitoring-sda-weka == @{package:version}",
 			"modaclouds-services-sla-core == @{package:version}",
-			"modaclouds-services-tower4clouds-data-analyzer == @{package:version}",
-			"modaclouds-services-tower4clouds-manager == @{package:version}",
-			"modaclouds-services-tower4clouds-rdf-history-db == @{package:version}",
 			"mosaic-object-store == @{package:version}"
 		]
 	},

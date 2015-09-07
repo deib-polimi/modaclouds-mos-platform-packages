@@ -72,7 +72,7 @@
 		"package:release" : "@{execution:timestamp}",
 		
 		"component:name" : "monitoring-manager",
-		"service:name" : "tower4clouds-manager",
+		"service:name" : "monitoring-manager",
 		
 		"resources:modaclouds:url:base" : "http://data.volution.ro/modaclouds/public",
 		"resources:modaclouds:url:packages" : "@{definitions:resources:modaclouds:url:base}/packages",

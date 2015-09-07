@@ -72,7 +72,7 @@
 		"package:release" : "@{execution:timestamp}",
 		
 		"component:name" : "monitoring-history-db",
-		"service:name" : "tower4clouds-rdf-history-db",
+		"service:name" : "monitoring-history-db",
 		
 		"resources:modaclouds:url:base" : "http://data.volution.ro/modaclouds/public",
 		"resources:modaclouds:url:packages" : "@{definitions:resources:modaclouds:url:base}/packages",
