@@ -20,7 +20,7 @@
 	"miscellaneous" : {
 		"license" : "apache-2.0",
 		"url" : "http://www.modaclouds.eu/",
-		"summary" : "MODAClouds services: T4C data analyzer (@{definitions:distribution:version})"
+		"summary" : "MODAClouds services: T4C RDF history database (@{definitions:distribution:version})"
 	},
 	
 	"overlays" : [
