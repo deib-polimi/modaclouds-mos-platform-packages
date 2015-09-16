@@ -82,10 +82,10 @@
 		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		
 		"environment:FGDB_ENDPOINT_IP" : "0.0.0.0",
-		"environment:FGDB_ENDPOINT_PORT" : "3032",
+		"environment:FGDB_ENDPOINT_PORT" : "3031",
 		"environment:FG_LOCALDB_DISTRIBUTION" : "@{package:root}/lib/distribution",
-		"environment:FG_PATH" : "/v1/collections/FG/",
-		"environment:FG_LOCALDB_METRICS" : "fg_metrics.properties",
+		"environment:FG_PATH" : "/v1/collections/FG/objects/",
+		"environment:FG_LOCALDB_METRICS" : "fg_metrics/data",
 		
 		"environment:OBJECT_STORE_ENDPOINT_IP" : "0.0.0.0",
 		"environment:OBJECT_STORE_ENDPOINT_PORT" : "20622",

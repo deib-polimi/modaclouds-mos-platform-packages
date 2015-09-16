@@ -84,8 +84,8 @@
 		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		
 		"environment:FG_DISTRIBUTION" : "@{package:root}/lib/distribution",
-		"environment:FG_PATH" : "/v1/collections/FG/",
-		"environment:FG_CONFIG" : "configuration_FG.xml",
+		"environment:FG_PATH" : "/v1/collections/FG/objects/",
+		"environment:FG_CONFIG" : "config/data",
 		
 		"environment:OBJECT_STORE_ENDPOINT_IP" : "0.0.0.0",
 		"environment:OBJECT_STORE_ENDPOINT_PORT" : "20622",
