@@ -79,13 +79,16 @@
 		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 		
 		"distribution:name" : "fg-analyzer",
-		"distribution:version" : "1.0.8",
+		"distribution:version" : "1.0.9",
 		"distribution:url:root" : "http://ftp.modaclouds.eu/public/distributions",
 		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
 		
 		"environment:FG_DISTRIBUTION" : "@{package:root}/lib/distribution",
 		"environment:FG_PATH" : "/v1/collections/FG/objects/",
 		"environment:FG_CONFIG" : "config/data",
+		
+		"environment:FGDB_ENDPOINT_IP" : "0.0.0.0",
+		"environment:FGDB_ENDPOINT_PORT" : "3031",
 		
 		"environment:OBJECT_STORE_ENDPOINT_IP" : "0.0.0.0",
 		"environment:OBJECT_STORE_ENDPOINT_PORT" : "20622",
