@@ -38,11 +38,11 @@
 			]
 		},
 		{
-			"generator" : "symlinks",
+			"generator" : "file-creator",
 			"target" : "@{package:root}/bin",
-			"links" : {
-				"@{package:name}--run-service" : "../lib/distribution/bin/service-run.bash"
-			}
+			"resource" : "service-run.bash",
+			"executable" : true,
+			"expand" : true
 		},
 		{
 			"generator" : "unarchiver",
@@ -50,7 +50,7 @@
 			"resource" : "distribution.tar.gz",
 			"format" : "tar+gzip",
 			"options" : {
-				"strip-components" : 1
+				"strip-components" : 0
 			}
 		}
 	],
@@ -72,7 +72,7 @@
 		"package:version" : "0.7.0_dev",
 		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 
-		"distribution:name" : "space4clouds-ops",
+		"distribution:name" : "s4c-ops",
 		"distribution:version" : "0.2",
 		"distribution:url:root" : "http://ftp.modaclouds.eu/public/distributions",
 		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
