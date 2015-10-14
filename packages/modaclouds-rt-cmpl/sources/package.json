@@ -1,0 +1,56 @@
+{
+	"_schema" : "tag:ieat.ro,2014:mosaic:v2:mos-package-builder:descriptors:composite-package",
+	"_schema/version" : 1,
+
+	"package" : {
+		"name" : "@{definitions:package:name}",
+		"version" : "@{definitions:package:version}",
+		"release" : "@{definitions:package:release}",
+		"architecture" : "i686",
+		"root" : "/opt/@{package:identifier}"
+	},
+
+	"dependencies" : {
+		"provides" : ["@{definitions:package:name}"],
+		"requires" : []
+	},
+
+	"miscellaneous" : {
+		"license" : "gpl-3.0",
+		"url" : "https://projects.coin-or.org/Cmpl",
+		"summary" : "Coliop/Coin Mathematical Programming Language (CMPL) (@{definitions:distribution:version})"
+	},
+
+	"overlays" : [
+		{
+			"generator" : "unarchiver",
+			"target" : "@{package:root}",
+			"resource" : "cmpl.tar.gz",
+			"format" : "tar+gzip",
+			"options" : {
+				"strip-components" : 0
+			}
+		}
+	],
+
+	"resources" : {
+		"cmpl.tar.gz" : {
+			"generator" : "fetcher",
+			"uri" : "@{definitions:distribution:url:base}/Cmpl-1-10-0-linux64.tar.gz"
+		}
+	},
+
+	"definitions" : {
+
+		"package:name" : "mosaic-rt-cmpl",
+		"package:version" : "0.7.0_dev",
+		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
+
+		"distribution:name" : "cmpl",
+		"distribution:version" : "1.10.0",
+		"distribution:url:root" : "http://ftp.modaclouds.eu/public/distributions",
+		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
+
+		"environment:TMPDIR" : "/tmp/modaclouds/@{package:identifier}"
+	}
+}

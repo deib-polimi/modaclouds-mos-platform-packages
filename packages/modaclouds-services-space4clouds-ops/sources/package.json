@@ -1,0 +1,99 @@
+{
+	"_schema" : "tag:ieat.ro,2014:mosaic:v2:mos-package-builder:descriptors:composite-package",
+	"_schema/version" : 1,
+
+	"package" : {
+		"name" : "@{definitions:package:name}",
+		"version" : "@{definitions:package:version}",
+		"release" : "@{definitions:package:release}",
+		"architecture" : "i686",
+		"root" : "/opt/@{package:identifier}"
+	},
+
+	"dependencies" : {
+		"provides" : ["@{definitions:package:name}"],
+		"requires" : [
+			"mosaic-rt-jre-7",
+			"mosaic-rt-cmpl"
+		]
+	},
+
+	"miscellaneous" : {
+		"license" : "apache-2.0",
+		"url" : "http://www.modaclouds.eu/",
+		"summary" : "MODAClouds services: Space 4Clouds Ops (@{definitions:distribution:version})"
+	},
+
+	"overlays" : [
+		{
+			"generator" : "folders",
+			"target" : "@{package:root}",
+			"folders" : [
+				"/",
+				"/bin",
+				"/lib",
+				"/lib/distribution",
+				"/lib/distribution/scripts",
+				"/lib/distribution/lib"
+			]
+		},
+		{
+			"generator" : "symlinks",
+			"target" : "@{package:root}/bin",
+			"links" : {
+				"@{package:name}--run-service" : "../lib/distribution/bin/service-run.bash"
+			}
+		},
+		{
+			"generator" : "unarchiver",
+			"target" : "@{package:root}/lib/distribution",
+			"resource" : "distribution.tar.gz",
+			"format" : "tar+gzip",
+			"options" : {
+				"strip-components" : 0
+			}
+		}
+	],
+
+	"resources" : {
+		"distribution.tar.gz" : {
+			"generator" : "fetcher",
+			"uri" : "@{definitions:distribution:url:base}/distribution.tar.gz"
+		},
+		"service-run.bash" : {
+			"generator" : "fetcher",
+			"uri" : "@{definitions:distribution:url:base}/service-run.bash"
+		}
+	},
+
+	"definitions" : {
+
+		"package:name" : "modaclouds-services-space4clouds-ops",
+		"package:version" : "0.7.0_dev",
+		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
+
+		"distribution:name" : "space4clouds-ops",
+		"distribution:version" : "0.2",
+		"distribution:url:root" : "http://ftp.modaclouds.eu/public/distributions",
+		"distribution:url:base" : "@{definitions:distribution:url:root}/@{definitions:distribution:name}/@{definitions:distribution:version}",
+
+		"environment:MODACLOUDS_SPACE4CLOUDS_OPS_DISTRIBUTION" : "@{package:root}/lib/distribution",
+		"environment:MODACLOUDS_SPACE4CLOUDS_OPS_ENDPOINT_IP" : "0.0.0.0",
+		"environment:MODACLOUDS_SPACE4CLOUDS_OPS_ENDPOINT_PORT" : "6789",
+
+		"environment:MODACLOUDS_SPACE4CLOUDS_OPS_SOLVER_EXECUTABLE" : "/opt/mosaic-rt-cmpl/cmpl",
+
+		"environment:MRT_ENDPOINT_IP" : "0.0.0.0",
+		"environment:MRT_ENDPOINT_PORT" : "9030",
+
+		"environment:TOWER4CLOUDS_MANAGER_ENDPOINT_IP" : "0.0.0.0",
+		"environment:TOWER4CLOUDS_MANAGER_ENDPOINT_PORT" : "8170",
+
+		"environment:OBJECT_STORE_ENDPOINT_IP" : "0.0.0.0",
+		"environment:OBJECT_STORE_ENDPOINT_PORT" : "20622",
+
+		"environment:JAVA_HOME" : "/opt/mosaic-rt-jre-7",
+		"environment:PATH" : "@{definitions:environment:JAVA_HOME}/bin:/usr/bin:/bin",
+		"environment:TMPDIR" : "/tmp/modaclouds/@{package:identifier}"
+	}
+}
