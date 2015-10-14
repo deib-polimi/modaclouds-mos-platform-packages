@@ -33,16 +33,15 @@
 				"/bin",
 				"/lib",
 				"/lib/distribution",
-				"/lib/distribution/scripts",
 				"/lib/distribution/lib"
 			]
 		},
 		{
-			"generator" : "file-creator",
+			"generator" : "symlinks",
 			"target" : "@{package:root}/bin",
-			"resource" : "service-run.bash",
-			"executable" : true,
-			"expand" : true
+			"links" : {
+				"@{package:name}--run-service" : "../lib/distribution/service-run.bash"
+			}
 		},
 		{
 			"generator" : "unarchiver",
@@ -59,10 +58,6 @@
 		"distribution.tar.gz" : {
 			"generator" : "fetcher",
 			"uri" : "@{definitions:distribution:url:base}/distribution.tar.gz"
-		},
-		"service-run.bash" : {
-			"generator" : "fetcher",
-			"uri" : "@{definitions:distribution:url:base}/service-run.bash"
 		}
 	},
 
