@@ -23,6 +23,13 @@
 
 	"overlays" : [
 		{
+			"generator" : "folders",
+			"target" : "@{package:root}",
+			"folders" : [
+				"/"
+			]
+		},
+		{
 			"generator" : "unarchiver",
 			"target" : "@{package:root}",
 			"resource" : "cmpl.tar.gz",
