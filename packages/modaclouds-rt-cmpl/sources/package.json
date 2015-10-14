@@ -26,7 +26,24 @@
 			"generator" : "folders",
 			"target" : "@{package:root}",
 			"folders" : [
-				"/"
+				"/",
+				"/bin",
+				"/cmplServer",
+				"/cmplServer/cmplServer",
+				"/Coliop3",
+				"/Coliop3/lib",
+				"/doc",
+				"/jCmpl",
+				"/jCmpl/lib",
+				"/pyCmpl",
+				"/pyCmpl/lib",
+				"/pyCmpl/lib/pyCmpl",
+				"/scripts",
+				"/scripts/Unix",
+				"/scripts/Windows",
+				"/Thirdparty",
+				"/Thirdparty/CBC",
+				"/Thirdparty/GLPK"
 			]
 		},
 		{
