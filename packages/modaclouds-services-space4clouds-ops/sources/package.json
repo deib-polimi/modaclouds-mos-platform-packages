@@ -14,7 +14,7 @@
 		"provides" : ["@{definitions:package:name}"],
 		"requires" : [
 			"mosaic-rt-jre-7",
-			"mosaic-rt-cmpl"
+			"modaclouds-rt-cmpl"
 		]
 	},
 
@@ -81,7 +81,7 @@
 		"environment:MODACLOUDS_SPACE4CLOUDS_OPS_ENDPOINT_IP" : "0.0.0.0",
 		"environment:MODACLOUDS_SPACE4CLOUDS_OPS_ENDPOINT_PORT" : "6789",
 
-		"environment:MODACLOUDS_SPACE4CLOUDS_OPS_SOLVER_EXECUTABLE" : "/opt/mosaic-rt-cmpl/cmpl",
+		"environment:MODACLOUDS_SPACE4CLOUDS_OPS_SOLVER_EXECUTABLE" : "/opt/modaclouds-rt-cmpl/cmpl",
 
 		"environment:MRT_ENDPOINT_IP" : "0.0.0.0",
 		"environment:MRT_ENDPOINT_PORT" : "9030",

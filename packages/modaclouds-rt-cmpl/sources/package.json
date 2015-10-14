@@ -7,7 +7,7 @@
 		"version" : "@{definitions:package:version}",
 		"release" : "@{definitions:package:release}",
 		"architecture" : "i686",
-		"root" : "/opt/@{package:identifier}"
+		"root" : "/opt/modaclouds-rt-cmpl"
 	},
 
 	"dependencies" : {
@@ -49,8 +49,8 @@
 
 	"definitions" : {
 
-		"package:name" : "mosaic-rt-cmpl",
-		"package:version" : "0.7.0_dev",
+		"package:name" : "modaclouds-rt-cmpl",
+		"package:version" : "1.10.0",
 		"package:release" : "@{execution:timestamp}_@{definitions:distribution:version}",
 
 		"distribution:name" : "cmpl",
