@@ -50,7 +50,7 @@
 			"resource" : "distribution.tar.gz",
 			"format" : "tar+gzip",
 			"options" : {
-				"strip-components" : 0
+				"strip-components" : 1
 			}
 		}
 	],
